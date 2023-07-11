@@ -4,7 +4,7 @@ require_relative "lib/ddd_tooling/version"
 
 Gem::Specification.new do |spec|
   spec.name = "ddd_tooling"
-  spec.version = DddTooling::VERSION
+  spec.version = DDDTooling::VERSION
   spec.authors = ["Philipp Winkler"]
   spec.email = ["philrigid@gmail.com"]
 
@@ -12,4 +12,6 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = ">= 2.6.0"
 
   spec.require_paths = ["lib"]
+
+  spec.add_dependency "zeitwerk"
 end

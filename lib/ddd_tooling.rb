@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
-require_relative "ddd_tooling/version"
+require "zeitwerk"
+loader = Zeitwerk::Loader.for_gem
+loader.inflector.inflect "ddd_tooling" => "DDDTooling"
+loader.setup
 
-module DddTooling
+module DDDTooling
   class Error < StandardError; end
   # Your code goes here...
 end
