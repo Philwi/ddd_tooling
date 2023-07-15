@@ -14,13 +14,13 @@
 class DDDTooling::Infrastructure::EventStore
   private
 
-  attr_reader :event_store_repository, :event_publisher
+  attr_reader :event_store_repository, :event_dispatcher
 
   public
 
-  def initialize(event_store_repository:, event_publisher:)
+  def initialize(event_store_repository:, event_dispatcher:)
     @event_store_repository = event_store_repository
-    @event_publisher = event_publisher
+    @event_dispatcher = event_dispatcher
   end
 
   def store(event:)
@@ -33,7 +33,7 @@ class DDDTooling::Infrastructure::EventStore
 
   def replay_events
     stored_events.each do |event|
-      @event_publisher.publish(event: event)
+      @event_dispatcher.dispatch(event: event)
     end
   end
 

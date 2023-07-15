@@ -9,12 +9,13 @@
 class DDDTooling::Event
   include DDDTooling::Concerns::Seriazable
 
-  attr_reader :unique_identifier
+  attr_reader :unique_identifier, :occurred_at
 
   # @return [void]
   def initialize
     # Each event should have a unique identifier. Because otherwhise it is not possible to detect duplicate events.
     @unique_identifier = SecureRandom.uuid
+    @occurred_at = Time.zone.now
   end
 
   # @param [Object] other

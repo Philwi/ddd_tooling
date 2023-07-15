@@ -5,7 +5,7 @@
 class DDDTooling::Infrastructure::EventCommitter
   private
 
-  attr_reader :event_store, :event_composer
+  attr_reader :event_store, :event_composer, :event_dispatcher
 
   public
 
@@ -17,9 +17,10 @@ class DDDTooling::Infrastructure::EventCommitter
   # - uncommitted_events
   # - clear
   # @return [void]
-  def initialize(event_store:, event_composer:)
+  def initialize(event_store:, event_composer:, event_dispatcher:)
     @event_store = event_store
     @event_composer = event_composer
+    @event_dispatcher = event_dispatcher
   end
 
   # @return [void]
